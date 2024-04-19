@@ -22,7 +22,8 @@ namespace API.Authenticate.JWT.Controllers
         public IActionResult Post([FromBody] User user)
         {
             // simula usuários
-            UserList.users.Add(new Models.User ("tatiana", "123456")); // 
+            UserList.users.Add(new Models.User ("tatiana", "123456", AllowedLevel.Master)); // 
+            UserList.users.Add(new Models.User("elias", "123456", AllowedLevel.Common)); // 
 
             var token = _tokenService.GetToken(user);
             if (string.IsNullOrEmpty(token) ) return Unauthorized();

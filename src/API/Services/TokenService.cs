@@ -31,12 +31,13 @@ namespace API.Authenticate.JWT.Services
 
             var tokenHandler = new JwtSecurityTokenHandler();
 
+            
             var tokenProperties = new SecurityTokenDescriptor()
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name, user.Name),
-                    new Claim(ClaimTypes.Role, user.AllowedLevel.ToString()),
+                    new Claim(ClaimTypes.Name, existsUser.Name),
+                    new Claim(ClaimTypes.Role, existsUser.AllowedLevel.ToString()),
                     new Claim("Date", $"{DateTime.Now:yyy-MM-dd}"),
                 }
                 ),

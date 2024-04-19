@@ -6,14 +6,16 @@
     }
     public enum AllowedLevel
     { 
-        Master =1, Medium =2,Common = 3
+        Master = 1, Medium =2,Common = 3
     }
     public class User
     {
-        public User(string name, string password)
+        public User(string name, string password, AllowedLevel allowedLevel)
         {
             Name = name;
             Password  = password;
+            AllowedLevel = allowedLevel;
+
 
         }
         public string Id { get; set; }  
